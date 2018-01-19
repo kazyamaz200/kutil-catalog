@@ -3,8 +3,8 @@ services:
   register-service:
     image: supersoftware/bop:register-service
     environment:
-      CONSUL_URL: http://management-register-service-consul-1.rancher.internal:8500/v1
-      SERVICES: '[{"ID":"weave1","Name":"weave.c1","Address":"${resolve_ip}"},{"ID":"guestbook1","Name":"guestbook.c1","Address":"${resolve_ip}"},{"ID":"wordpress1","Name":"wordpress.c1","Address":"${resolve_ip}"},{"ID":"rgw1","Name":"rgw.c1","Address":"${resolve_ip}"},{"ID":"gateway1","Name":"gateway.c1","Address":"${resolve_ip}"}]'
+      CONSUL_URL: http://dcm-register-service-consul-1.rancher.internal:8500/v1
+      SERVICES: '[{"ID":"weave1","Name":"weave","Address":"${resolve_ip}"},{"ID":"guestbook1","Name":"guestbook","Address":"${resolve_ip}"},{"ID":"wordpress1","Name":"wordpress","Address":"${resolve_ip}"},{"ID":"rgw1","Name":"rgw","Address":"${resolve_ip}"},{"ID":"gateway1","Name":"gateway","Address":"${resolve_ip}"}]'
     stdin_open: true
     tty: true
     labels:
@@ -33,7 +33,7 @@ services:
   authority:
     image: paulczar/omgwtfssl
     environment:
-      SSL_DNS: weave.c1.service.${ctd},guestbook.c1.service.${ctd},wordpress.c1.service.${ctd},rgw.c1.service.${ctd},gateway.c1.service.${ctd}
+      SSL_DNS: weave.service.${ctd},guestbook.service.${ctd},wordpress.service.${ctd},rgw.service.${ctd},gateway.service.${ctd}
       SSL_EXPIRE: '36500'
       SSL_SUBJECT: service.${ctd}
       CA_EXPIRE: '36500'
