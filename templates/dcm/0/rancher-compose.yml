@@ -7,7 +7,7 @@ version: '2'
   category: Applications
   maintainer: "Kazuhito Yamazawa <yamazawa@supersoftware.co.jp>"
   minimum_rancher_version: v1.5.3
-  uuid: pipeline-0
+  uuid: dcm-0
   questions:
   - variable: "rancher_url"
     description: "(e.g. https://try.rancher.com/v2-beta/projects/1a000000"
