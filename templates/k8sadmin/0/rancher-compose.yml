@@ -9,11 +9,6 @@ version: '2'
   minimum_rancher_version: v1.5.3
   uuid: k8sadmin-0
   questions:
-  - variable: "http_node_port"
-    description: "k8s ingress controller http node port"
-    label: "NodePort"
-    required: false
-    type: "int"
 services:
   kutil:
     scale: 1
@@ -23,17 +18,7 @@ services:
     lb_config:
       certs: []
       default_cert: service.op-v1
-      port_rules:
-      - priority: 1
-        protocol: http
-        service: workers
-        source_port: 80
-        target_port: ${http_node_port}
-      - priority: 2
-        protocol: https
-        service: workers
-        source_port: 443
-        target_port: ${http_node_port}
+      port_rules: []
     health_check:
       healthy_threshold: 2
       response_timeout: 2000
