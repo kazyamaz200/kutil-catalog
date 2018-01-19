@@ -13,20 +13,3 @@ services:
   kutil:
     scale: 1
     start_on_create: true
-  external-lb:
-    start_on_create: true
-    lb_config:
-      certs: []
-      default_cert: service.op-v1
-      port_rules: []
-    health_check:
-      healthy_threshold: 2
-      response_timeout: 2000
-      port: 42
-      unhealthy_threshold: 3
-      initializing_timeout: 60000
-      interval: 2000
-      reinitializing_timeout: 60000
-  workers:
-    external_ips: []
-    start_on_create: true
